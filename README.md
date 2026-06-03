@@ -1,20 +1,33 @@
-# Library Management API
+# 📚 Library Management API
 
-Sistema de gestão de biblioteca com controle de acervo, empréstimos e devoluções. Gerencia disponibilidade de exemplares automaticamente e registra histórico por leitor.
+Sistema de biblioteca com controle de empréstimos, devoluções e multas por atraso.
 
-## Tecnologias
-Java 17 · Spring Boot 3.2 · Spring Data JPA · PostgreSQL · Maven · Swagger/OpenAPI
+## 📋 Sobre o Projeto
 
-## Funcionalidades
-- Cadastro e busca de livros por título, autor e categoria
-- Controle de exemplares disponíveis por livro
-- Empréstimo com prazo automático de 14 dias
-- Devolução com liberação automática de exemplar
-- Histórico de empréstimos por e-mail do leitor
+API para gerenciar o acervo e os empréstimos de uma biblioteca. Controla quais livros estão disponíveis, registra empréstimos para usuários, calcula multas por atraso na devolução e atualiza automaticamente a disponibilidade do livro.
 
-## Como Executar
-```bash
-mvn spring-boot:run
-# Acesse: http://localhost:8089/swagger-ui.html
-```
-**Patryck Martins Langsdorff** — Java Back End Developer Junior | [LinkedIn](https://www.linkedin.com/in/patryck-martins-langsdorff)
+## ✨ Funcionalidades
+
+- ✅ Cadastrar livros (título, autor, ISBN, quantidade)
+- ✅ Registrar empréstimo de livro
+- ✅ Registrar devolução
+- ✅ Calcular multa por atraso na devolução
+- ✅ Listar livros disponíveis
+- ✅ Histórico de empréstimos por usuário
+- ✅ Verificar se livro está disponível
+- ✅ Status do empréstimo: ACTIVE, RETURNED, OVERDUE
+
+## 🔗 Endpoints
+
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET/POST | `/api/books` | Listar / Cadastrar livros |
+| GET | `/api/books/available` | Livros disponíveis |
+| GET/POST | `/api/loans` | Listar / Registrar empréstimo |
+| POST | `/api/loans/{id}/return` | Registrar devolução |
+| GET | `/api/loans/user/{userId}` | Empréstimos por usuário |
+| GET | `/api/loans/overdue` | Empréstimos em atraso |
+
+## 🛠️ Tecnologias
+
+- Java 17 · Spring Boot 3.2 · PostgreSQL · Maven · Lombok
